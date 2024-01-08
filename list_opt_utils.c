@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:37:01 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/01 08:29:19 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/08 18:52:20 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	duplicate(t_node *a, t_node *b, t_node **new_a, t_node **new_b)
 		current = current->next;
 	}
 	current = b;
+	while(current)
 	{
 		insert_end(current->data, new_b);
 		current = current->next;

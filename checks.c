@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:37:04 by fasare            #+#    #+#             */
-/*   Updated: 2023/12/31 09:42:38 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/08 17:22:03 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_last(t_node *head)
 	t_node	*current;
 
 	current = head;
-	while (current->next != NULL)
+	while (current->next)
 	{
 		current = current->next;
 	}
@@ -51,8 +51,8 @@ t_node	*max_node(t_node *head)
 	}
 	current = head;
 	max = head;
-	max_value = head->data;
-	while (current != NULL)
+	max_value = current->data;
+	while (current)
 	{
 		if (current->data > max_value)
 		{

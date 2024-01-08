@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:37:04 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/01 06:42:10 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/08 17:29:49 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	insert_end(int x, t_node **head)
 		return ;
 	}
 	current = *head;
-	while (current->next != NULL)
+	while (current->next)
 	{
 		current = current->next;
 	}
@@ -73,21 +73,14 @@ int	has_dup(t_node *head)
 void	clear(t_node **head)
 {
 	t_node	*current;
-	t_node	*next_node;	
 
-	current = *head;
-	if (head == NULL || *head == NULL)
-	{
+	if (head == NULL)
 		return ;
-	}
-	while (current != NULL)
+	while (*head != NULL)
 	{
-		next_node = current->next;
+		current = *head;
+		*head = current->next;
 		free(current);
-		current = next_node;
+		current = *head;
 	}
-	*head = NULL;
 }
-// check line 77 to 82, current = head must be 
-// after assignment. it might change the whole operation.
-// clear.c is create.c
