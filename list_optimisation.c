@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:50 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/01 08:19:52 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/09 08:10:04 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,15 @@ void	reverselist(t_node **list, t_node **secondarylist, char dir)
 	t_node	*nextnode;
 
 	current = *list;
-	prev = NULL;
-	nextnode = NULL;
-	while (current->next)
+	prev = current;
+	while (prev->next->next)
 	{
-		nextnode = current->next;
-		current->next = prev;
-		prev = current;
-		current = nextnode;
+		prev = prev->next;
 	}
-	current->next = prev;
-	*list = current;
+	nextnode = prev->next;
+	nextnode->next = current;
+	prev->next = NULL;
+	*list = nextnode;
 	if (dir == 'R')
 		reverselist(secondarylist, list, 'c');
 }

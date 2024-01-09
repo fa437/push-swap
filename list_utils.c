@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:44 by fasare            #+#    #+#             */
-/*   Updated: 2023/12/31 09:57:39 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/09 08:28:13 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	isreverse(t_node *head)
 	t_node	*current;
 
 	current = head;
-	while (current->next != NULL)
+	while (current->next)
 	{
 		if (current->data < current->next->data)
 			return (0);
@@ -36,7 +36,7 @@ int	issorted(t_node *head)
 	t_node	*current;
 
 	current = head;
-	while (current->next != NULL)
+	while (current->next)
 	{
 		if (current->data > current->next->data)
 			return (0);

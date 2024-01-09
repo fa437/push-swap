@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:47 by fasare            #+#    #+#             */
-/*   Updated: 2023/12/26 04:37:14 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/09 08:47:34 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,83 +30,83 @@ int	get_size(t_node *head)
 int	min_value(t_node *head)
 {
 	t_node	*current;
-	int		min_value;
+	int		min;
 
 	current = head;
-	min_value = current->data;
+	min = current->data;
 	while (current)
 	{
-		if (current->data < min_value)
+		if (current->data < min)
 		{
-			min_value = current->data;
+			min = current->data;
 		}
 		current = current->next;
 	}
-	return (min_value);
+	return (min);
 }
 
 int	max_value(t_node *head)
 {
 	t_node	*current;
-	int		max_value;
+	int		max;
 
 	current = head;
-	max_value = current->data;
+	max = current->data;
 	while (current)
 	{
-		if (current->data > max_value)
+		if (current->data > max)
 		{
-			max_value = current->data;
+			max = current->data;
 		}
 		current = current->next;
 	}
-	return (max_value);
+	return (max);
 }
 
 int	min_position(t_node *head)
 {
 	int		position;
-	int		current_position;
-	int		min_value;
+	int		min;
+	int		min_position;
 	t_node	*current;
 
 	position = 0;
-	current_position = 0;
 	current = head;
-	min_value = current->data;
+	min = current->data;
+	min_position = 0;
 	while (current)
 	{
-		if (current->data < min_value)
+		if (current->data < min)
 		{
-			min_value = current->data;
-			position = current_position;
+			min = current->data;
+			min_position = position;
 		}
-		current_position++;
+		position++;
 		current = current->next;
 	}
-	return (position);
+	return (min_position);
 }
 
 int	max_position(t_node *head)
 {
 	int		position;
-	int		current_position;
-	int		max_value;
+	int		max;
+	int		max_position;
 	t_node	*current;
 
 	position = 0;
-	current_position = 0;
 	current = head;
-	max_value = current->data;
+	max = current->data;
+	max_position = 0;
 	while (current)
 	{
-		if (current->data > max_value)
+		if (current->data > max)
 		{
-			max_value = current->data;
-			position = current_position;
+			max = current->data;
+			max_position = position;
 		}
-		current_position++;
+		position++;
 		current = current->next;
 	}
-	return (position);
+	return (max_position);
 }

@@ -6,7 +6,7 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:41 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/01 06:38:38 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/09 10:02:01 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	push(t_node **a, t_node **b, char c)
 
 	current = *a;
 	next_node = current->next;
-	current = current->next;
 	current->next = *b;
 	*b = current;
 	*a = next_node;
@@ -57,22 +56,18 @@ void	rotate(t_node **a, t_node **b, char c)
 	t_node	*last;
 
 	current = *a;
-	prev = NULL;
-	last = NULL;
-	while (current->next != NULL)
-	{
-		prev = current;
-		current = current->next;
-	}
+	prev = current->next;
 	last = current;
-	last->next = *a;
-	prev->next = NULL;
-	*a = current;
+	while (last->next)
+		last = last->next;
+	last->next = current;
+	current->next = NULL;
+	*a = prev;
 	if (c == 'a')
 		ft_putendl_fd("ra", 1);
-	else if (c == 'b')
+	if (c == 'b')
 		ft_putendl_fd("rb", 1);
-	else if (c == 'r')
+	if (c == 'r')
 	{
 		rotate(b, a, 'c');
 		ft_putendl_fd("rr", 1);
@@ -86,12 +81,12 @@ void	reverse(t_node **a, t_node **b, char c)
 	t_node	*last;
 
 	current = *a;
-	prev = NULL;
-	last = NULL;
-	while (current->next->next != NULL)
-		current = current->next;
-	last = current->next;
-	last->next = NULL;
+	prev = current;
+	while (prev->next->next)
+		prev = prev->next;
+	last = prev->next;
+	last->next = current;
+	prev->next = NULL;
 	*a = last;
 	if (c == 'a')
 		ft_putendl_fd("rra", 1);
