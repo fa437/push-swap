@@ -6,12 +6,14 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:37:04 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/08 17:29:49 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/19 12:42:39 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* convert each str to an int using ft_atoi.
+insert the int at the end of the list */
 void	get_list(char **str, t_node **head)
 {
 	int	i;
@@ -24,6 +26,8 @@ void	get_list(char **str, t_node **head)
 	}
 }
 
+/*insert new node with a specified value at
+the end of a linked list*/
 void	insert_end(int x, t_node **head)
 {
 	t_node	*new_node;
@@ -46,6 +50,8 @@ void	insert_end(int x, t_node **head)
 	current->next = new_node;
 }
 
+/*Iterates through the linked list.
+for every node compare nodes, if it has dup.*/
 int	has_dup(t_node *head)
 {
 	t_node	*current;
@@ -70,6 +76,9 @@ int	has_dup(t_node *head)
 	return (0);
 }
 
+/*frees each node in the linked list until list is empty.
+it takes a pointer to the head of the list, and after
+execution, the head is set to NULL*/
 void	clear(t_node **head)
 {
 	t_node	*current;
@@ -84,3 +93,5 @@ void	clear(t_node **head)
 		current = *head;
 	}
 }
+/* create linked list, insert nodes at end,
+ check for duplicates and then free all memory allocated*/

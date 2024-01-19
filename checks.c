@@ -6,12 +6,13 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:37:04 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/08 17:22:03 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/19 12:48:49 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Return last node in ll
 int	get_last(t_node *head)
 {
 	t_node	*current;
@@ -24,6 +25,7 @@ int	get_last(t_node *head)
 	return (current->data);
 }
 
+// return position of node x
 int	node_pos(t_node *x, t_node *head)
 {
 	t_node	*current;
@@ -39,6 +41,7 @@ int	node_pos(t_node *x, t_node *head)
 	return (position);
 }
 
+//iterates ll, track max node with the max value.
 t_node	*max_node(t_node *head)
 {
 	t_node	*current;
@@ -64,6 +67,8 @@ t_node	*max_node(t_node *head)
 	return (max);
 }
 
+//check if it is sorted, iterate list until appropriate pos for x
+//Determines target pos to insert node into sorted or unsorted ll.
 void	target_div(t_node *x, t_node *a, t_node *current, int *i)
 {
 	while (issorted(a) && current && x->data > current->data)
@@ -87,6 +92,7 @@ void	target_div(t_node *x, t_node *a, t_node *current, int *i)
 	}
 }
 
+// determining the pos for inserting x, if max or min
 int	target(t_node *x, t_node *a)
 {
 	t_node	*current;
@@ -102,3 +108,8 @@ int	target(t_node *x, t_node *a)
 	}
 	return (i);
 }
+
+/*
+find the max node, determine target pos for inserting nodes
+based on the nature of the list.
+*/

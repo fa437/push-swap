@@ -6,12 +6,13 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:47 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/09 08:47:34 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/19 14:03:17 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* iteratre thtough the linked list and return the size */
 int	get_size(t_node *head)
 {
 	t_node	*current;
@@ -27,6 +28,8 @@ int	get_size(t_node *head)
 	return (i);
 }
 
+/* itereate the head, find the min value
+	and retuen it.*/
 int	min_value(t_node *head)
 {
 	t_node	*current;
@@ -45,6 +48,8 @@ int	min_value(t_node *head)
 	return (min);
 }
 
+/* iterate the the head find the max value in
+	head and retuen the valua*/
 int	max_value(t_node *head)
 {
 	t_node	*current;
@@ -63,6 +68,7 @@ int	max_value(t_node *head)
 	return (max);
 }
 
+/* find & return the pos of min value in a linked list.*/
 int	min_position(t_node *head)
 {
 	int		position;
@@ -87,6 +93,7 @@ int	min_position(t_node *head)
 	return (min_position);
 }
 
+/* find & return the pos of max value in a linked list.*/
 int	max_position(t_node *head)
 {
 	int		position;

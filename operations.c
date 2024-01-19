@@ -6,12 +6,13 @@
 /*   By: fasare <fasare@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:41 by fasare            #+#    #+#             */
-/*   Updated: 2024/01/09 10:02:01 by fasare           ###   ########.fr       */
+/*   Updated: 2024/01/19 14:17:33 by fasare           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* swap the top 2 elements on a & b or both */
 void	swap(t_node **a, t_node **b, char c)
 {
 	t_node	*current;
@@ -33,6 +34,7 @@ void	swap(t_node **a, t_node **b, char c)
 	}
 }
 
+/* push elements from top of a to b or otherwise */
 void	push(t_node **a, t_node **b, char c)
 {
 	t_node	*current;
@@ -49,6 +51,7 @@ void	push(t_node **a, t_node **b, char c)
 		ft_putendl_fd("pb", 1);
 }
 
+/* rotate top elements to the bottom of a, b or both*/
 void	rotate(t_node **a, t_node **b, char c)
 {
 	t_node	*current;
@@ -74,6 +77,7 @@ void	rotate(t_node **a, t_node **b, char c)
 	}
 }
 
+/* reverse elements in a, b or both*/
 void	reverse(t_node **a, t_node **b, char c)
 {
 	t_node	*current;
